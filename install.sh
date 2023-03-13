@@ -2,8 +2,8 @@
 
 set -xe
 
-SOUND_DEFAULT="${SOUND_DEFAULT:-$HOME/.local/share/sounds/__custom/uncategorized/appointed.oga}"
-SOUND_CALENDAR="${SOUND_CALENDAR:-$HOME/.local/share/sounds/__custom/uncategorized/solemn.oga}"
+SOUND_DEFAULT="${SOUND_DEFAULT:-/usr/share/sounds/freedesktop/stereo/bell.oga}"
+SOUND_FERDIUM="${SOUND_FERDIUM:-/usr/share/sounds/freedesktop/stereo/message-new-instant.oga}"
 
 
 cd "$(dirname $(realpath $0))"
@@ -18,7 +18,7 @@ if [[ "$(cat /etc/redhat-release)" =~ ^CentOS\ Linux\ release\ 7 ]]; then
 		[Desktop Entry]
 		Name=gaudible
 		Type=Application
-		Exec=$HOME/bin/gaudible -v --sound "calendar:$SOUND_CALENDAR" --sound "$SOUND_DEFAULT"
+		Exec=$HOME/bin/gaudible -v --sound "ferdium:$SOUND_FERDIUM" --filter "ferdium"
 		Hidden=false
 		NoDisplay=false
 		Terminal=false
@@ -31,7 +31,7 @@ fi
 mkdir -p ~/.config/systemd/user
 cat <<-EOT > ~/.config/systemd/user/gaudible.service
 	[Service]
-	ExecStart=$HOME/bin/gaudible -v --sound "calendar:$SOUND_CALENDAR" --sound "$SOUND_DEFAULT"
+	ExecStart=$HOME/bin/gaudible -v --sound "ferdium:$SOUND_FERDIUM" --filter "ferdium"
 	Restart=always
 	NoNewPrivileges=true
 
