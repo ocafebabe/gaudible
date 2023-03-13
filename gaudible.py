@@ -21,6 +21,7 @@ DEFAULT_RATE_MS = 500
 FILTERS = {
     'calendar':        ('org.gtk.Notifications', 'AddNotification', 'org.gnome.Evolution-alarm-notify'),
     'calendar-legacy': ('org.freedesktop.Notifications', 'Notify', 'Evolution Reminders'),
+    'ferdium':         ('org.freedesktop.Notifications', 'Notify', 'Ferdium'),
     'firefox':         ('org.freedesktop.Notifications', 'Notify', 'Firefox'),
     'librewolf':       ('org.freedesktop.Notifications', 'Notify', 'LibreWolf'),
     'notify-send':     ('org.freedesktop.Notifications', 'Notify', 'notify-send'),
